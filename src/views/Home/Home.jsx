@@ -1,11 +1,14 @@
 import React from 'react';
 
-import HelloWorld from '../../components/HelloWorld';
+import SayHello from '../../components/SayHello';
 
 const Home = () => (
-  <div>
-    <HelloWorld />
-  </div>
+  <>
+    <SayHello name='world' />
+    <SayHello name='sum' />
+    <SayHello name='air' />
+    <SayHello name='water' />
+  </>
 );
 
 export default Home;
