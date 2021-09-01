@@ -2,12 +2,13 @@ import React from 'react';
 
 import SayHello from '../../components/SayHello';
 
+const names = ['world', 'sun', 'air', 'water'];
+
 const Home = () => (
   <>
-    <SayHello name='world' />
-    <SayHello name='sum' />
-    <SayHello name='air' />
-    <SayHello name='water' />
+    {names.map((name) => (
+      <SayHello key={name} name={name} />
+    ))}
   </>
 );
 
