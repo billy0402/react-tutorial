@@ -1,14 +1,12 @@
 import React from 'react';
 
-import SayHello from '../../components/SayHello';
-
-const names = ['world', null, 'noBody', 'air', 'water'];
+import Counter from '../../components/Counter';
 
 const Home = () => (
   <>
-    {names.map((name) => (
-      <SayHello key={name} name={name} />
-    ))}
+    <Counter />
+    <hr />
+    <Counter />
   </>
 );
 
