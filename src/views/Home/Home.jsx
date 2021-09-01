@@ -2,7 +2,7 @@ import React from 'react';
 
 import SayHello from '../../components/SayHello';
 
-const names = ['world', 'sun', 'air', 'water'];
+const names = ['world', null, 'noBody', 'air', 'water'];
 
 const Home = () => (
   <>
