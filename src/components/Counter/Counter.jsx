@@ -2,6 +2,21 @@ import React, { useEffect, useState } from 'react';
 
 import style from './index.scss';
 
+const Title = React.memo(
+  () => {
+    console.log('Render title component');
+    return (
+      <div>
+        <h1>計數器</h1>
+      </div>
+    );
+  },
+  (prevProps, nextProps) => {
+    console.log(prevProps, nextProps);
+    return false;
+  },
+);
+
 const Counter = () => {
   const [count, setCount] = useState(0);
 
@@ -21,6 +36,7 @@ const Counter = () => {
 
   return (
     <div>
+      <Title />
       <div>目前數字: {count}</div>
       <button
         onClick={() => {
