@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import style from './index.scss';
 
@@ -17,12 +17,28 @@ const Title = React.memo(
   },
 );
 
+const IncreaseCounter = (props) => {
+  console.log('Button 被重新渲染');
+  return <button onClick={props.increase}>點我加一</button>;
+};
+
 const Counter = () => {
   const [count, setCount] = useState(0);
 
   const [items, setItems] = useState([1, 2, 3]);
 
   const [name, setName] = useState({ firstName: '', lastName: '' });
+
+  const [userName, setUserName] = useState('');
+
+  const decorateName = useMemo(() => {
+    console.log('decorate name');
+    return `超級${userName}!`;
+  }, [userName]);
+
+  const increase = useCallback(() => {
+    setCount((newCount) => newCount + 1);
+  }, []);
 
   useEffect(() => {
     console.log('Counter 第一次渲染後和因為 state 改變重新渲染後');
@@ -37,22 +53,11 @@ const Counter = () => {
   return (
     <div>
       <Title />
+      <div>使用者: {decorateName}</div>
+      <input value={userName} onChange={(e) => setUserName(e.target.value)} />
+
       <div>目前數字: {count}</div>
-      <button
-        onClick={() => {
-          // setCount(count + 1);
-          // setCount(count + 1);
-          // setCount(count + 1);
-
-          setCount((newCount, newProps) => newCount + 1);
-          setCount((newCount, newProps) => newCount + 1);
-          setCount((newCount, newProps) => newCount + 1);
-
-          console.log(count);
-        }}
-      >
-        點我加一
-      </button>
+      <IncreaseCounter increase={increase} />
 
       <div>目前陣列: {JSON.stringify(items)}</div>
       <button
