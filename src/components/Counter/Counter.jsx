@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import useCounter from '../../hooks/useCounter';
 
 import style from './index.scss';
 
@@ -20,6 +21,44 @@ const Title = React.memo(
 const IncreaseCounter = (props) => {
   console.log('Button 被重新渲染');
   return <button onClick={props.increase}>點我加一</button>;
+};
+
+const SuperAmazingCounter = () => {
+  const { count, add } = useCounter(100, () => {
+    console.log('超級炫砲計數器執行');
+  });
+
+  return (
+    <div>
+      <div>目前超炫砲的數字:{count}</div>
+      <button
+        onClick={() => {
+          add(10);
+        }}
+      >
+        點我加十
+      </button>
+    </div>
+  );
+};
+
+const NormalCounter = () => {
+  const { count, add } = useCounter(1, () => {
+    console.log('一般的計數器執行');
+  });
+
+  return (
+    <div>
+      <div>目前的數字:{count}</div>
+      <button
+        onClick={() => {
+          add(1);
+        }}
+      >
+        點我加十
+      </button>
+    </div>
+  );
 };
 
 const Counter = () => {
@@ -58,6 +97,8 @@ const Counter = () => {
 
       <div>目前數字: {count}</div>
       <IncreaseCounter increase={increase} />
+      <SuperAmazingCounter />
+      <NormalCounter />
 
       <div>目前陣列: {JSON.stringify(items)}</div>
       <button
