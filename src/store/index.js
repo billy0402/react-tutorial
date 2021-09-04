@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 import news from '../reducers/news';
 import user from '../reducers/user';
@@ -21,7 +22,7 @@ import user from '../reducers/user';
 
 const store = createStore(
   combineReducers({ news, user }),
-  applyMiddleware(logger),
+  applyMiddleware(thunk, logger),
 );
 
 export default store;

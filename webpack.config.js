@@ -42,7 +42,7 @@ module.exports = {
   mode: 'production',
   devServer: { static: './dist' },
   performance: {
-    maxAssetSize: 400000,
-    maxEntrypointSize: 400000,
+    maxAssetSize: 500000,
+    maxEntrypointSize: 500000,
   },
 };
