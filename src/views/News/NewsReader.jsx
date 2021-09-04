@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import UpdateBtn from '../../components/UpdateBtn';
 
@@ -18,4 +19,6 @@ const NewsReader = (props) => {
   );
 };
 
-export default NewsReader;
+const mapStateToProps = (state) => ({ news: state.news });
+
+export default connect(mapStateToProps)(NewsReader);

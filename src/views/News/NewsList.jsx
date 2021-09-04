@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const NewsList = (props) => (
   <ul>
@@ -11,4 +12,6 @@ const NewsList = (props) => (
   </ul>
 );
 
-export default NewsList;
+const mapStateToProps = (state) => ({ news: state.news });
+
+export default connect(mapStateToProps)(NewsList);
