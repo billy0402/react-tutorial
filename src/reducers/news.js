@@ -8,6 +8,13 @@ const initialState = {
 
 const news = (state = initialState, action) => {
   switch (action.type) {
+    case 'ADD_NEWS':
+      return { ...state, news: [...state.news, action.payload.news] };
+    case 'DELETE_NEWS':
+      return {
+        ...state,
+        news: state.news.filter((theNews) => theNews.id !== action.payload.id),
+      };
     default:
       return state;
   }
