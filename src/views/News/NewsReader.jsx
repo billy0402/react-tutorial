@@ -1,28 +1,25 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import UpdateBtn from '../../components/UpdateBtn';
 
-const NewsReader = (props) => {
+const NewsReader = () => {
   const { id: targetNewsId } = useParams();
-  const targetNews = props.news.find(
+  const news = useSelector((state) => state.news.news);
+  const userName = useSelector((state) => state.user.name);
+  const targetNews = news.find(
     (theNews) => String(theNews.id) === String(targetNewsId),
   );
 
   return (
     <div>
       <h1>您正在閱讀{targetNews.name}</h1>
-      <span>{props.user}</span>
+      <span>{userName}</span>
       <p>{targetNews.description}</p>
       <UpdateBtn />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  news: state.news.news,
-  user: state.user.name,
-});
-
-export default connect(mapStateToProps)(NewsReader);
+export default NewsReader;
