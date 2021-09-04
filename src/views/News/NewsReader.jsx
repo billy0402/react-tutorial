@@ -13,12 +13,16 @@ const NewsReader = (props) => {
   return (
     <div>
       <h1>您正在閱讀{targetNews.name}</h1>
+      <span>{props.user}</span>
       <p>{targetNews.description}</p>
       <UpdateBtn />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({ news: state.news });
+const mapStateToProps = (state) => ({
+  news: state.news.news,
+  user: state.user.name,
+});
 
 export default connect(mapStateToProps)(NewsReader);
