@@ -1,5 +1,7 @@
 import React from 'react';
 
+import UpdateBtn from '../../components/UpdateBtn';
+
 const NewsReader = (props) => {
   console.log(props.match);
   const targetNewsId = props.match.params.id;
@@ -11,6 +13,7 @@ const NewsReader = (props) => {
     <div>
       <h1>您正在閱讀{targetNews.name}</h1>
       <p>{targetNews.description}</p>
+      <UpdateBtn />
     </div>
   );
 };
