@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "keywords": [],
   "author": "",
