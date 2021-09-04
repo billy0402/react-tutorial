@@ -9,6 +9,9 @@ const Menu = () => (
       <Link to='/home'>首頁</Link>
     </li>
     <li>
+      <Link to='/news'>新聞</Link>
+    </li>
+    <li>
       <Link to='/about'>關於我們</Link>
     </li>
   </ul>
