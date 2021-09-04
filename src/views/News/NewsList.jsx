@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { deleteNews } from '../../actions/news';
 
-const NewsList = (props) => {
+const NewsList = () => {
   const news = useSelector((state) => state.news.news);
+  const dispatch = useDispatch();
 
   return (
     <ul>
@@ -14,7 +15,7 @@ const NewsList = (props) => {
           <Link to={`/news/${theNews.id}`}>{theNews.name}</Link>
           <button
             onClick={() => {
-              props.deleteNews(theNews.id);
+              dispatch(deleteNews(theNews.id));
             }}
           >
             刪除
@@ -25,10 +26,4 @@ const NewsList = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  deleteNews: (id) => {
-    dispatch(deleteNews(id));
-  },
-});
-
-export default connect(null, mapDispatchToProps)(NewsList);
+export default NewsList;
