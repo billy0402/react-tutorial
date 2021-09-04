@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from 'react-router-dom';
 
 import Home from './views/Home';
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+ReactDOM.render(
+  <HashRouter>
+    <Home />
+  </HashRouter>,
+  document.getElementById('root'),
+);
