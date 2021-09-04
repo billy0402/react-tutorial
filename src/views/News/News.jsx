@@ -25,10 +25,7 @@ const News = () => {
           </>
         )}
       />
-      <Route
-        path='/news/:id'
-        component={(props) => <NewsReader match={props.match} news={news} />}
-      />
+      <Route path='/news/:id' component={() => <NewsReader news={news} />} />
     </Switch>
   );
 };

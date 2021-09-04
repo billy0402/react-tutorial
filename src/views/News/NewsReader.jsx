@@ -1,10 +1,10 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import UpdateBtn from '../../components/UpdateBtn';
 
 const NewsReader = (props) => {
-  console.log(props.match);
-  const targetNewsId = props.match.params.id;
+  const { id: targetNewsId } = useParams();
   const targetNews = props.news.find(
     (theNews) => String(theNews.id) === String(targetNewsId),
   );
