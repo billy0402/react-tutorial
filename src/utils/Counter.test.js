@@ -1,6 +1,9 @@
 import { expect, test } from '@jest/globals';
 
 import Counter from './Counter';
+import { addTwoNumbers } from './math';
+
+jest.mock('./math');
 
 test('The default value of count of the counter will be 0', () => {
   // Arrange: 準備階段
@@ -13,6 +16,8 @@ test('The default value of count of the counter will be 0', () => {
 
 test('The count will be from 0 become 1 if I first executed increment method', () => {
   // Arrange: 準備階段
+  addTwoNumbers.mockReturnValue(1);
+  console.log(addTwoNumbers.mock.calls);
   const counter = new Counter();
   const expected = 1;
 
