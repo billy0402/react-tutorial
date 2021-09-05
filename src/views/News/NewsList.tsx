@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { RootState } from '../../store';
 import { deleteNews } from '../../actions/news';
 
 const NewsList = () => {
-  const news = useSelector((state) => state.news.news);
+  const news = useSelector((state: RootState) => state.news.news);
   const dispatch = useDispatch();
 
   return (
