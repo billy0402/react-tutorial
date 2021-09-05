@@ -7,7 +7,8 @@
     "build": "webpack --mode production",
     "start": "webpack serve",
     "test": "jest --verbose",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "tsm": "tsm src --watch"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "node-sass": "^6.0.1",
     "react-test-renderer": "^17.0.2",
     "sass-loader": "^12.1.0",
+    "typed-scss-modules": "^4.1.1",
     "typescript": "^4.4.2",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
