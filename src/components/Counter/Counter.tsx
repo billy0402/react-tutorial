@@ -62,7 +62,7 @@ const NormalCounter = () => {
 };
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
 
   const [items, setItems] = useState([1, 2, 3]);
 
