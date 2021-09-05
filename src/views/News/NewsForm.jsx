@@ -11,6 +11,7 @@ const NewsForm = () => {
     <div>
       名稱:
       <input
+        placeholder='請輸入名稱'
         value={newsForm.name}
         onChange={(e) => {
           setNewsForm({ ...newsForm, name: e.target.value });
@@ -18,6 +19,7 @@ const NewsForm = () => {
       />
       敘述:
       <input
+        placeholder='請輸入敘述'
         value={newsForm.description}
         onChange={(e) => {
           setNewsForm({ ...newsForm, description: e.target.value });

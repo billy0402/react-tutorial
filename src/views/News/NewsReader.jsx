@@ -14,7 +14,7 @@ const NewsReader = () => {
 
   return (
     <div>
-      <h1>您正在閱讀{targetNews.name}</h1>
+      <h1>您正在閱讀 {targetNews.name}</h1>
       <span>{userName}</span>
       <p>{targetNews.description}</p>
       <UpdateBtn />
