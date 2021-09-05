@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import NewsList from './NewsList.jsx';
-import NewsReader from './NewsReader.jsx';
-import NewsForm from './NewsForm.jsx';
+import NewsList from './NewsList';
+import NewsReader from './NewsReader';
+import NewsForm from './NewsForm';
 
 import style from './index.scss';
 
