@@ -8,4 +8,10 @@ export default class Counter {
   increment() {
     this.count = addTwoNumbers(this.count, 1);
   }
+
+  async setCountFromDatabase() {
+    const response = await fetch('https://url/count');
+    const { count } = await response.json();
+    this.count = count;
+  }
 }

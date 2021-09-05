@@ -1,3 +1,5 @@
+import 'regenerator-runtime';
+import 'core-js/stable';
 import { expect, test } from '@jest/globals';
 
 import Counter from './Counter';
@@ -26,4 +28,19 @@ test('The count will be from 0 become 1 if I first executed increment method', (
 
   // Assert: 驗證階段
   expect(counter.count).toBe(expected);
+});
+
+test('The count will become value of response after executed setCountFromDatabase', async () => {
+  // Arrange: 準備階段
+  global.fetch = jest.fn().mockReturnValue({ json: () => ({ count: 5 }) });
+  const counter = new Counter();
+  const expected = 5;
+
+  // Act: 執行階段
+  await counter.setCountFromDatabase();
+
+  // Assert: 驗證階段
+  expect(counter.count).toBe(expected);
+
+  delete global.fetch;
 });
