@@ -7,7 +7,7 @@ const TestCounter = () => {
 
   return (
     <div>
-      <div>目前數字: {count}</div>
+      <div className={style.count}>目前數字: {count}</div>
       <button
         onClick={() => {
           setCount(count + 1);
