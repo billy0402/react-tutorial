@@ -3,7 +3,7 @@ const path = require('path');
 const MiniCssExtraPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, './dist/'),
     filename: 'bundle.js',
@@ -11,10 +11,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         use: {
           loader: 'babel-loader',
-          options: { presets: ['@babel/preset-react', '@babel/preset-env'] },
+          options: {
+            presets: [
+              '@babel/preset-typescript',
+              '@babel/preset-react',
+              '@babel/preset-env',
+            ],
+          },
         },
       },
       {
@@ -37,6 +43,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   plugins: [new MiniCssExtraPlugin({ filename: 'index.css' })],
   mode: 'production',
